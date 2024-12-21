@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { BlogPost } from '@/lib/types';
+import Image from 'next/image';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -18,15 +19,21 @@ export default function BlogCard({ post, index }: BlogCardProps) {
       viewport={{ once: true }}
       className="group relative overflow-hidden rounded-2xl bg-white/5 hover:bg-white/10 transition-colors"
     >
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={`/blog/${post.slug || 'coming-soon'}`}>
         <div className="aspect-w-16 aspect-h-9 overflow-hidden">
-          <motion.img
-            src={post.coverImage}
-            alt={post.title}
+          <motion.div
             className="object-cover w-full h-full transform"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.6 }}
-          />
+          >
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              layout="responsive"
+              width={700}
+              height={475}
+            />
+          </motion.div>
         </div>
         <div className="p-6">
           <div className="flex items-center justify-between mb-4">
@@ -38,10 +45,12 @@ export default function BlogCard({ post, index }: BlogCardProps) {
           </h3>
           <p className="text-gray-400 mb-4 line-clamp-2">{post.excerpt}</p>
           <div className="flex items-center">
-            <img
+            <Image
               src={post.author.avatar}
               alt={post.author.name}
               className="w-8 h-8 rounded-full mr-3"
+              width={32}
+              height={32}
             />
             <span className="text-sm text-gray-300">{post.author.name}</span>
           </div>

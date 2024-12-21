@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -40,17 +41,25 @@ export default function FeaturedProjects() {
               className="group relative overflow-hidden rounded-lg bg-gray-900"
             >
               <div className="aspect-w-16 aspect-h-9">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+                <motion.div
+                  className="object-cover w-full h-full transform"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    layout="responsive"
+                    width={700}
+                    height={475}
+                  />
+                </motion.div>
               </div>
               <div className="p-6">
                 <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
                 <p className="mb-4 text-gray-400">{project.description}</p>
                 <Link
-                  href={project.link}
+                  href={project.link || '/coming-soon'}
                   className="text-blue-400 hover:text-blue-300"
                 >
                   Learn more →
