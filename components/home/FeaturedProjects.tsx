@@ -23,6 +23,48 @@ const projects = [
     image: '/images/project3.jpg',
     link: '/projects/project-three',
   },
+  {
+    title: 'Project Four',
+    description: 'E-commerce website built with Shopify',
+    image: '/images/project4.jpg',
+    link: '/projects/project-four',
+  },
+  {
+    title: 'Project Five',
+    description: 'Social media app developed using Flutter',
+    image: '/images/project5.jpg',
+    link: '/projects/project-five',
+  },
+  {
+    title: 'Project Six',
+    description: 'Real-time chat application using WebSockets',
+    image: '/images/project6.jpg',
+    link: '/projects/project-six',
+  },
+  {
+    title: 'Project Seven',
+    description: 'Machine learning model for image recognition',
+    image: '/images/project7.jpg',
+    link: '/projects/project-seven',
+  },
+  {
+    title: 'Project Eight',
+    description: 'Personal portfolio website built with Gatsby',
+    image: '/images/project8.jpg',
+    link: '/projects/project-eight',
+  },
+  {
+    title: 'Project Nine',
+    description: 'Weather forecasting app using OpenWeather API',
+    image: '/images/project9.jpg',
+    link: '/projects/project-nine',
+  },
+  {
+    title: 'Project Ten',
+    description: 'Fitness tracking app developed with React Native',
+    image: '/images/project10.jpg',
+    link: '/projects/project-ten',
+  },
 ];
 
 export default function FeaturedProjects() {
